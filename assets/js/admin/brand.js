@@ -6,7 +6,7 @@ $(document).ready(function(){
 		// cho nội dung (text, thẻ con, ...) của element #list-brand thành rỗng
 		$("#list-brand").html("");
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/read.php",
+			url:  basicUrl+"RestAPI/brand/read.php",
 			type: "GET",
 			success: function(response){
 				$.each(response, function(key, value){
@@ -40,7 +40,7 @@ $(document).ready(function(){
 		// nếu dữ liệu nhận được rỗng thi jsonobj trả về false
 		//console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/create.php",
+			url:  basicUrl+"RestAPI/brand/create.php",
 			type: "POST",
 			data: jsonobj,
 			success:function(data){
@@ -57,7 +57,7 @@ $(document).ready(function(){
 		//alert(idBrand);
 		if(confirm("Bạn có muốn xóa brand "+idBrand+" không?")){
 			$.ajax({
-				url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/delete.php?id="+idBrand,
+				url:  basicUrl+"RestAPI/brand/delete.php?id="+idBrand,
 				type: "POST",
 				success: function(data){
 					alert("Đã xóa thành công!");
@@ -72,7 +72,7 @@ $(document).ready(function(){
 	//show details for update
 	var idBrand = $(".update-brand #idBrand").val();
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/read_one.php?id="+idBrand,
+		url:  basicUrl+"RestAPI/brand/read_one.php?id="+idBrand,
 		type: "GET",
 		success: function(data){
 			$("#brandName").val(data['brandName']);
@@ -84,7 +84,7 @@ $(document).ready(function(){
 		var jsonobj = JsonData("#updateForm_brand");
 		console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/update.php",
+			url:  basicUrl+"RestAPI/brand/update.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){

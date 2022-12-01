@@ -59,6 +59,7 @@ crossorigin="anonymous"></script>
 <!-- Jquery -->
 <script src="assets/js/jquery/jquery.js"></script>
 <!-- javascript -->
+<script src="assets/js/common.js"></script>
 <script src="assets/js/web/main.js"></script>
 <script src="assets/js/web/pay.js"></script>
 </body>

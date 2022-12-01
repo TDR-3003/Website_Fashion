@@ -14,9 +14,9 @@ class Cuahang extends Controller
 
 
 	public function allProduct(){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
 
 		$search = isset($_GET['search']) ? $_GET['search'] : null;
 		$filter_price = isset($_GET['filter-price']) ? $_GET['filter-price'] : null;
@@ -53,12 +53,12 @@ class Cuahang extends Controller
 					$main[] = $s[$i];
 				}
 			}
-			$url_api = "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/find.php?".implode("&", $main); 
+			$url_api = $this->basicUrl."/product/find.php?".implode("&", $main); 
 			//var_dump($url_api);
 			$allProduct = $this->Get_All($url_api);
 		}
 		else{
-			$allProduct = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read.php");
+			$allProduct = $this->Get_All($this->basicUrl."/product/read.php");
 		}
 
 		require "View/index.php";
@@ -67,45 +67,45 @@ class Cuahang extends Controller
 
 
 	public function searchProduct($key){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
-		$allProduct = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/find.php?search=".$key);
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
+		$allProduct = $this->Get_All($this->basicUrl."/product/find.php?search=".$key);
 
 		require "View/index.php";
 	}
 
 	public function filterProduct__price($price){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
-		$allProduct = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/find.php?filter-price=".$price);
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
+		$allProduct = $this->Get_All($this->basicUrl."/product/find.php?search=".$price);
 
 		require "View/index.php";
 	}
 
 	public function filterProduct__color($color){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
-		$allProduct = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/find.php?filter-color=".$color);
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
+		$allProduct = $this->Get_All($this->basicUrl."/product/find.php?search=".$color);
 		require "View/index.php";
 	}
 
 	public function filterProduct__size($size){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
-		$allProduct = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/find.php?filter-size=".$size);
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
+		$allProduct = $this->Get_All($this->basicUrl."/product/find.php?search=".$size);
 		require "View/index.php";
 	}
 
 
 	public function filterProduct__Latest($size){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
-		$allProduct = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/find.php?filter-size=".$size);
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
+		$allProduct = $this->Get_All($this->basicUrl."/product/find.php?search=".$size);
 		require "View/index.php";
 	}
 

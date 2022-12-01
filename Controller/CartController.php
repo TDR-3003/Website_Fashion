@@ -2,9 +2,9 @@
 require_once "Controller.php";
 class Cart extends Controller{
 	public function index(){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
-		$allColor = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php");
-		$allSize = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php");
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		$allColor = $this->Get_All($this->basicUrl."/color/read.php");
+		$allSize = $this->Get_All($this->basicUrl."/size/read.php");
 
 		$modify = isset($_GET['mod']) ? $_GET['mod'] : null;
 		switch($modify){
@@ -12,7 +12,7 @@ class Cart extends Controller{
 				//unset($_SESSION["cart_item"]);
 				if(!empty($_GET["quantity"])){
 					// 0=> array{name: "name", ...}
-					$productByID = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read_one.php?id=".$_GET['idProduct']);
+					$productByID = $this->Get_All($this->basicUrl."/product/read_one.php?id=".$_GET['idProduct']);
 					// idProduct => array{name:"name", ...}
 					$itemArray = array($productByID[0]["idProduct"]=>array('productName'=>$productByID[0]["productName"], 'idProduct'=>$productByID[0]["idProduct"], 'quantity'=>$_GET["quantity"], 'productUnitPrice'=>$productByID[0]["productUnitPrice"], 'image'=>$productByID[0]["image"]));
 

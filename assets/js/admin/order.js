@@ -2,7 +2,7 @@ $(document).ready(function(){
 	function showList(){
 		$("#list-order").text('');
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/order/read.php",
+			url:  basicUrl+"RestAPI/order/read.php",
 			type: "GET",
 			success: function(data){
 				//console.log(data);
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	//show details
 	var idOrder = $_GET['idOrder'];
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/order/read_details.php?id="+idOrder,
+		url:  basicUrl+"RestAPI/order/read_details.php?id="+idOrder,
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -91,7 +91,7 @@ $(document).ready(function(){
 		});
 		//console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/order/update_status.php",
+			url:  basicUrl+"RestAPI/order/update_status.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){
@@ -113,7 +113,7 @@ $(document).ready(function(){
 		});
 		//console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/order/update_status.php",
+			url:  basicUrl+"RestAPI/order/update_status.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){
@@ -135,7 +135,7 @@ $(document).ready(function(){
 		//alert(idOrder);
 		if(confirm("Xác nhận xóa "+idOrder+" ?")){
 			$.ajax({
-				url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/order/delete.php?id="+idOrder,
+				url:  basicUrl+"RestAPI/order/delete.php?id="+idOrder,
 				type: "GET",
 				success: function(data){
 					console.log('xóa order và orderdetails thành công');

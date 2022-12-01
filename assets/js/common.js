@@ -1,5 +1,9 @@
+// PHẦN DÙNG CHUNG
+var basicUrl = 'http://localhost/WORK_SPACE/dacn1_fashion/'
 	
 
+
+// PHẦN DƯỚI CHO ADMIN
 
 //Show Success or Error message
 function Message(message,status){

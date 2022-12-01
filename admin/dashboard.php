@@ -2,7 +2,7 @@
 
 function getNumber($name){
 	//Resourse Address        
-	$url = "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/$name/read.php";
+	$url = "http://localhost/WORK_SPACE/dacn1_fashion/RestAPI/$name/read.php";
 
 	//Send request to Resourse        
 	$client = curl_init($url);

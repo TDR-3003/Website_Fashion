@@ -68,7 +68,9 @@ class Product extends Model
 		$f = trim($f, 'OR ');  // phải có dấu cách chỗ OR vì hàm trim tính luôn dấu cách đó
 			//echo $f;
 		$query = "SELECT * FROM $this->table 
-					INNER JOIN quantity ON product.idQuantity = quantity.idQuantity
+					INNER JOIN quantity ON product.idQuantity = quantity.idQuantity 
+					INNER JOIN size ON quantity.idSize = size.idSize
+					INNER JOIN color ON quantity.idColor = color.idcolor
 					LEFT JOIN (SELECT idImg, idProduct AS idPro, image, isMain 
 					FROM image WHERE image.isMain = 1) as image 
 					ON product.idProduct = image.idPro

@@ -49,6 +49,7 @@ if(isset($_SESSION['userName']) && isset($_SESSION['idUser'])){
 	<!-- Jquery -->
 	<script src="./assets/js/jquery/jquery.js"></script>
 	<!-- JS -->
+	<script src="./assets/js/common.js"></script>
 	<script src="./assets/js/login.js"></script>
 </body>
 </html>

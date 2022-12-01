@@ -7,7 +7,7 @@ $(document).ready(function(){
 		var idProduct = $_GET['id'];
 		//alert(idProduct);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read_details.php?id="+idProduct,
+			url:  basicUrl+"RestAPI/product/read_details.php?id="+idProduct,
 			type: "GET",
 			success: function(data){
 				$("#details_product #idproduct").val(data[0]['idProduct']);
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	function showList_image(idProduct){
 		// show all list image
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/image/read.php",
+			url:  basicUrl+"RestAPI/image/read.php",
 			type: "POST",
 			data: {
 				idProduct: idProduct
@@ -64,7 +64,7 @@ $(document).ready(function(){
 	function loadAll_product(){
 		$("#list-product").html("");
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read.php",
+			url:  basicUrl+"RestAPI/product/read.php",
 			type: "GET",
 			success: function(data){
 				//console.log(data)
@@ -104,7 +104,7 @@ $(document).ready(function(){
 
 	// show form add product
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php",
+		url:  basicUrl+"RestAPI/category/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -117,7 +117,7 @@ $(document).ready(function(){
 		}
 	});
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/read.php",
+		url:  basicUrl+"RestAPI/brand/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -130,7 +130,7 @@ $(document).ready(function(){
 		}
 	});
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php",
+		url:  basicUrl+"RestAPI/color/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -143,7 +143,7 @@ $(document).ready(function(){
 		}
 	});
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php",
+		url:  basicUrl+"RestAPI/size/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -165,7 +165,7 @@ $(document).ready(function(){
 		var jsonobj = JsonData("#formAdd__product #form");
 		//console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/create.php",
+			url:  basicUrl+"RestAPI/product/create.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){
@@ -182,7 +182,7 @@ $(document).ready(function(){
 		//alert(idProduct);
 		if(confirm("Bạn có muốn xóa sản phẩm "+idProduct+" không?")){
 			$.ajax({
-				url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/delete.php?id="+idProduct,
+				url:  basicUrl+"RestAPI/product/delete.php?id="+idProduct,
 				type: "GET",
 				success: function(data){
 					alert("Đã xóa thành công sản phẩm");
@@ -214,7 +214,7 @@ $(document).ready(function(){
 
 	// show form update product
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php",
+		url:  basicUrl+"RestAPI/category/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -227,7 +227,7 @@ $(document).ready(function(){
 		}
 	});
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/brand/read.php",
+		url:  basicUrl+"RestAPI/brand/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -240,7 +240,7 @@ $(document).ready(function(){
 		}
 	});
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/color/read.php",
+		url:  basicUrl+"RestAPI/color/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -253,7 +253,7 @@ $(document).ready(function(){
 		}
 	});
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/size/read.php",
+		url:  basicUrl+"RestAPI/size/read.php",
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -268,7 +268,7 @@ $(document).ready(function(){
 
 	var idProduct = $_GET['id'];
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read_details.php?id="+idProduct,
+		url:  basicUrl+"RestAPI/product/read_details.php?id="+idProduct,
 		type: "GET",
 		success: function(data){
 			$.each(data, function(key, value){
@@ -305,7 +305,7 @@ $(document).ready(function(){
 		var jsonobj = JsonData("#formUpdate__product #form");
 		console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/update.php?id="+idProduct,
+			url:  basicUrl+"RestAPI/product/update.php?id="+idProduct,
 			type: "POST",
 			data: jsonobj,
 			success: function(data){
@@ -354,7 +354,7 @@ $(document).ready(function(){
 		var jsonobj = JSON.stringify(obj);
 		//console.log(jsonobj);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/image/create.php",
+			url:  basicUrl+"RestAPI/image/create.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){
@@ -398,7 +398,7 @@ $(document).ready(function(){
 
 		//alert(idImg);
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/image/delete.php?id="+idImg,
+			url:  basicUrl+"RestAPI/image/delete.php?id="+idImg,
 			type: "GET",
 			success: function(data){
 				showList_image(idProduct);
@@ -425,7 +425,7 @@ $(document).ready(function(){
 		var jsonobj = JSON.stringify(obj);
 		//console.log(jsonobj)
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/image/isMain.php",
+			url:  basicUrl+"RestAPI/image/isMain.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){

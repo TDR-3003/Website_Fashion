@@ -10,14 +10,15 @@ $(document).ready(function(){
 		var jsonobj = JSON.stringify(obj)
 		//console.log(email+password)
 		$.ajax({
-			url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/login.php",
+			// basicUrl: để dễ sửa path => js/common.js
+			url: basicUrl+"/RestAPI/user/login.php",
 			type: "POST",
 			data: jsonobj,
 			success: function(data){
 				var userName = data['lastName'] + "_" + data['firstName']
 				var idUser = data['idUser']
 				var idDivision = data['idDivision']
-				window.location = "http://localhost:8080/WORK_SPACE/dacn1_fashion/login_handle.php?userName="+userName+"&idUser="+idUser+"&idDivision="+idDivision
+				window.location = basicUrl+"/login_handle.php?userName="+userName+"&idUser="+idUser+"&idDivision="+idDivision
 				}
 			});
 	})

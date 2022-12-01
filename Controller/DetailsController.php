@@ -2,12 +2,13 @@
 require_once "Controller.php";
 class Details extends Controller{
 	public function index(){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
+		$allCategory = $this->Get_All($this->urlAllCategory);
+		
 		$idProduct = isset($_GET['id']) ? $_GET['id'] : Null;
 		if($idProduct){
-			$productDetails = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read_one.php?id=".$idProduct);
-			$productImages = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/image/read.php?idProduct=".$idProduct);
-			$productSimilar = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/product/read_similar.php?id=".$idProduct);
+			$productDetails = $this->Get_All($this->basicUrl."/product/read_one.php?id=".$idProduct);
+			$productImages = $this->Get_All($this->basicUrl."/image/read.php?idProduct=".$idProduct);
+			$productSimilar = $this->Get_All($this->basicUrl."/product/read_similar.php?id=".$idProduct);
 		}else{
 			$productDetails = Null;
 		}

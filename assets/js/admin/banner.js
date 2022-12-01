@@ -5,7 +5,7 @@ $(document).ready(function(){
 function loadAll_banner(){
   $("#list-banner").html("");
   $.ajax({
-    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/banner/read.php",
+    url: basicUrl+"RestAPI/banner/read.php",
     type: "GET",
     success: function(data){
       $.each(data, function(key, value){
@@ -47,7 +47,7 @@ $("#save-button-banner").on("click", function(e){
   var jsonobj=JSON.stringify(obj);
   console.log(jsonobj);
   $.ajax({
-    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/banner/create.php",
+    url: basicUrl+"RestAPI/banner/create.php",
     type: "POST",
     data: jsonobj,
     success: function(data){
@@ -94,7 +94,7 @@ $(document).on("click", "#delete-btn-banner", function(){
   //alert(idBanner);
   if(confirm("Bạn có muốn xóa "+idBanner+" không?")){
     $.ajax({
-      url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/banner/delete.php?id="+idBanner,
+      url: basicUrl+"RestAPI/banner/delete.php?id="+idBanner,
       type: "GET",
       success:function(data){
         alert("Đã xóa thành công!!");
@@ -118,7 +118,7 @@ $(document).on("click", "#active_banner", function(){
   //alert(num_active);
   if(confirm("Bạn có muốn active banner "+idBanner+" không?")){
     $.ajax({
-      url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/banner/active.php",
+      url: basicUrl+"RestAPI/banner/active.php",
       type: "POST",
       data: jsonobj,
       success:function(data){

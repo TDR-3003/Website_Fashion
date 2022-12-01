@@ -1,8 +1,11 @@
 <?php 
 session_start();
+//session_destroy();
 class Controller{
-	function __construct(){
+	// protected: lớp con có thể truy cập trực tiếp
+	protected $basicUrl = "http://localhost/WORK_SPACE/dacn1_fashion/RestAPI/";
 
+	function __construct(){
 	}
 
 	public function Get_All($url){
@@ -52,7 +55,7 @@ class Controller{
 
 	public function insert_curl($idUser, $idProduct, $quantityOrder){
 		// URL có chứa hai thông tin name và diachi
-		$url = "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/order/create.php?idUser=".$idUser."&idProduct=".$idProduct."&quantityOrder=".$quantityOrder;
+		$url = "http://localhost/WORK_SPACE/dacn1_fashion/RestAPI/order/create.php?idUser=".$idUser."&idProduct=".$idProduct."&quantityOrder=".$quantityOrder;
 
 		// Khởi tạo CURL
 		$ch = curl_init($url);

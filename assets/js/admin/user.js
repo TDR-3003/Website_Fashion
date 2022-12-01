@@ -5,7 +5,7 @@ $(document).ready(function(){
   // hiển thị user chi tiết để update
   var idUser = $(".idUser").val();
   $.ajax({
-    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/read_one.php?idUser="+idUser,
+    url:  basicUrl+"RestAPI/user/read_one.php?idUser="+idUser,
     type: "GET",
     success:function(data){        
       $("#Division").val(data['idDivision']);
@@ -24,7 +24,7 @@ $(document).ready(function(){
     var jsonobj=JsonData("#updateForm"); //get json data using call function 
     console.log(jsonobj);
     $.ajax({
-      url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/update_full.php",
+      url:  basicUrl+"RestAPI/user/update_full.php",
       type: "POST",
       data: jsonobj,
       success:function(data){
@@ -42,7 +42,7 @@ $(document).ready(function(){
 function loadTable(){
   $("#list-user").html(""); //starting me empty ho jae
   $.ajax({
-    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/read_full.php",
+    url:  basicUrl+"RestAPI/user/read_full.php",
     type: "GET",
     success:function(data){
       //console.log(data);
@@ -86,7 +86,7 @@ loadTable();
 // hiển thị form insert
 
 $.ajax({
-  url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/division/read.php",
+  url:  basicUrl+"RestAPI/division/read.php",
   type: "GET",
   success:function(data){  
     $.each(data,function(key,value){      
@@ -106,7 +106,7 @@ $("#save-button").on("click",function(e){
     Message("All Fields Are Required",false); //Call Message Function
   }else{
     $.ajax({
-      url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/create_full.php",
+      url:  basicUrl+"RestAPI/user/create_full.php",
       type: "POST",
       data: jsonobj,
       success:function(data){ 
@@ -127,7 +127,7 @@ $(document).on("click","#delete-btn",function(){
   //alert(idUser);
   if(confirm("Bạn có muốn xóa "+idUser+" không?")){
     $.ajax({
-        url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/delete.php?id="+idUser,
+        url:  basicUrl+"RestAPI/user/delete.php?id="+idUser,
         type: "GET",
         success:function(data){
           alert("Đã xóa thành công!!");

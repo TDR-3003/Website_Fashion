@@ -2,9 +2,9 @@
 require_once "Controller.php";
 class Pay extends Controller{
 	public function index(){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
 		if(isset($_SESSION['idUser'])){
-			$user = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/user/read_one.php?idUser=1");
+			$user = $this->Get_All($this->basicUrl."/user/read_one.php?idUser=".$_SESSION['idUser']);
 			require "View/index.php";
 		}else{
 			echo "<script>alert('Đăng nhập trước khi vào thanh toán nhé!')</script>";
@@ -14,7 +14,7 @@ class Pay extends Controller{
 	}
 
 	public function insert(){
-		$allCategory = $this->Get_All("http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php");
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
 		foreach ($_SESSION["cart_item"] as $item){ 
 			$a = $this->insert_curl($_GET['idUser'], $item['idProduct'], $item['quantity']);
 		}

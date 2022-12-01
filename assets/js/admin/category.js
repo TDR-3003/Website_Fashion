@@ -4,7 +4,7 @@ $(document).ready(function(){
 	function loadTable_category(){
 	  $("#list-category").html(""); //starting me empty ho jae
 	  $.ajax({
-	    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php",
+	    url:  basicUrl+"RestAPI/category/read.php",
 	    type: "GET",
 	    success:function(data){
 	        $.each(data,function(key,value){
@@ -38,7 +38,7 @@ $(document).ready(function(){
 	// hiển thị dữ liệu để chuẩn bị update
 	var idCategory = $(".update-category #idCategoryProduct").val();
 	$.ajax({
-		url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read_one.php?id="+idCategory,
+		url:  basicUrl+"RestAPI/category/read_one.php?id="+idCategory,
 		type: "GET",
 		success: function(data){
 			$("#categoryName").val(data['categoryName']);
@@ -64,7 +64,7 @@ $(document).ready(function(){
 	  	console.log(jsonobj);
 
 	  	$.ajax({
-	    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/update.php",
+	    url:  basicUrl+"RestAPI/category/update.php",
 	    type: "POST",
 	    data: jsonobj,
 	    success: function(data){
@@ -114,7 +114,7 @@ $(document).ready(function(){
 		var idCategory = $(this).data("iddelete");
 		if(confirm("Bạn có muốn xóa "+idCategory+" không? ")){
 			$.ajax({
-				url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/delete.php",
+				url:  basicUrl+"RestAPI/category/delete.php",
 				type: "POST",
 				data: {
 					number: idCategory
@@ -148,7 +148,7 @@ $(document).ready(function(){
 	  var jsonobj=JSON.stringify(obj);
 	  console.log(jsonobj);
 	  $.ajax({
-	    url: "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/create.php",
+	    url:  basicUrl+"RestAPI/category/create.php",
 	    type: "POST",
 	    data: jsonobj,
 	    success: function(data){

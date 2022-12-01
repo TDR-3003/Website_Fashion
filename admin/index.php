@@ -136,6 +136,7 @@
     <!-- Jquery -->
     <script src="../assets/js/jquery/jquery.js"></script>
     <!-- JS -->
+    <script src="../assets/js/common.js"></script>
     <script src="../assets/js/admin/common.js"></script>
     <script src="../assets/js/admin/main.js"></script>
     <script src="../assets/js/admin/user.js"></script>

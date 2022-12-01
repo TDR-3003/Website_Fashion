@@ -9,7 +9,12 @@ switch($action){
 	case "cuahang":
 		require_once "Controller/CuahangController.php";
 		$obj = new Cuahang();
-		$obj->allProduct();
+		$search = isset($_GET['search']) ? $_GET['search'] : null;
+		if(!empty($search)){
+			$obj->searchProduct($search);
+		}else{
+			$obj->allProduct();
+		}
 		break;
 	case "details":
 		require_once "Controller/DetailsController.php";
