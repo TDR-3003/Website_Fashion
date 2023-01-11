@@ -1,8 +1,8 @@
 
 <div id="body_cuahang">
-    <div class="container">
+    <div class="wrap">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-2">
                 <div class="cuahang__subnav">
                     <div class="subnav__header">
                         <h3 class="subnav__header__text">Lọc Sản Phẩm</h3>
@@ -11,75 +11,74 @@
                         <input type="hidden" name="act" value="cuahang">
                         <ul class="subnav__list">
                             <li class="subnav__list-item">
-                                <span class="sufmbnav__list-item__text">Giá</span>
+                                <span class="sufmbnav__list-item__text">Giá (VND)</span>
                                 <div class="subnav__filter-price">
                                     <ul class="subnav__filter-price__list">
                                         <li class="subnav__filter-price__list-item">
                                             <input type="radio" name="filter-price" id="filter-price1" value="0-100000">
-                                            <label for="filter-price1">Dưới 100.000 VND</label>
+                                            <label for="filter-price1">Dưới 100.000</label>
                                         </li>
                                         <li class="subnav__filter-price__list-item">
                                             <input type="radio" name="filter-price" id="filter-price2" value="100000-200000">
-                                            <label for="filter-price2">100.000 - 200.000 VND</label>
+                                            <label for="filter-price2">100.000 - 200.000</label>
                                         </li>
                                         <li class="subnav__filter-price__list-item">
                                             <input type="radio" name="filter-price" id="filter-price3" value="200000-300000">
-                                            <label for="filter-price3">200.000 - 300.000 VND</label>
+                                            <label for="filter-price3">200.000 - 300.000</label>
                                         </li>
                                         <li class="subnav__filter-price__list-item">
                                             <input type="radio" name="filter-price" id="filter-price4" value="300000-500000">
-                                            <label for="filter-price4">300.000 - 500.000 VND</label>
+                                            <label for="filter-price4">300.000 - 500.000</label>
                                         </li>
                                         <li class="subnav__filter-price__list-item">
                                             <input type="radio" name="filter-price" id="filter-price5" value="500000-1000000000000000000000">
-                                            <label for="filter-price5">500.000 VND trở lên</label>
+                                            <label for="filter-price5">Trên 500.000</label>
                                         </li>
                                     </ul>
                                 </div>                                    
                             </li>
-                            <li class="subnav__list-item">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <span class="subnav__list-item__text">Màu</span>
-                                        <div class="subnav__filter-price">
-                                            <ul class="subnav__filter-price__list">
-                                                <?php foreach($allColor as $key=>$value){ ?> 
-                                                    <li class="subnav__filter-price__list-item">
-                                                        <input type="radio" name="filter-color" id="<?=$value['color']?>" value="<?=$value['color']?>">
-                                                        <label for="<?=$value['color']?>"><?=$value['color']?></label>
-                                                    </li>
-                                                <?php } ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="subnav__list-item__text">Size</span>
-                                        <div class="subnav__filter-price">
-                                            <select name="filter-size" class="">
-                                                <option value="">--chose--</option>
-                                                <?php foreach($allSize as $key=>$value){ ?> 
-                                                    <option value="<?=$value['size']?>">
-                                                        <?=$value['size']?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="subnav__list-item__btn">
-                                    Lọc
-                                </button>
-                            </li>
                         </ul>
+
+                        <div class="col-12 subnav__filter-colorsize">
+                            <span class="subnav__list-item__text">Màu</span>
+                            <div class="subnav__filter-colorsize">
+                                <select name="filter-color" class="filter-colorsize">
+                                    <option value="">--chose--</option>
+                                    <?php foreach($allColor as $key=>$value){ ?> 
+                                        <option value="<?=$value['color']?>">
+                                            <?=$value['color']?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 subnav__filter-colorsize">
+                            <span class="subnav__list-item__text">Size</span>
+                            <div class="subnav__filter-colorsize">
+                                <select name="filter-size" class="filter-colorsize">
+                                    <option value="">--chose--</option>
+                                    <?php foreach($allSize as $key=>$value){ ?> 
+                                        <option value="<?=$value['size']?>">
+                                            <?=$value['size']?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="subnav__list-item__btn--wrap">
+                            <button type="submit" class="subnav__list-item__btn">
+                                Lọc
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-10">
                 <div class="cuahang__product">
                  <div class="cuahang__product__header">
                     <span class="cuahang__product__header__text">Sắp xếp theo: </span>
-                    <a href="#" class="cuahang__product__header__btn">
-                        Phổ biến
+                    <a href="#" class="cuahang__product__header__btn" data-toggle="modal" data-target="#exampleModal">
+                        Suggestion
                     </a>
                     <a href="?act=cuahang&latest=1" class="cuahang__product__header__btn active">
                         Mới nhất
@@ -139,15 +138,15 @@
                                         <span class="cuahang_show-product__item__name--old">
                                             1,000.000đ 
                                         </span> 
-                                        -->
+                                    -->
                                     <span class="cuahang_show-product__item__name--curent">
                                        <?=$value['productUnitPrice']?>
-                                    </span>
-                                    <p class="size-color">
-                                        size: <?=$value['size']?>
-                                        -
-                                        color: <?=$value['color']?>
-                                    </p>
+                                   </span>
+                                   <p class="size-color">
+                                    size: <?=$value['size']?>
+                                    -
+                                    color: <?=$value['color']?>
+                                </p>
                             </div>
                             <div class="cuahang_show-product__item__name__btn">
                                 <a href="?act=details&id=<?=$value['idProduct']?>">
@@ -192,3 +191,66 @@
 </div>
 </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Dress suggestions for you - Hãy nhập thông tin của bạn
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="modal_suggest" class="modal-body">
+                <form action="" method="get">
+                    <input type="hidden" name="act" value="cuahang">
+                    <div class="form-group row">
+                        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                        <div class="col-sm-10 padding-top--10">
+                            <?php foreach($allCategory as $key=>$value){ ?>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="<?php echo $value['idCategoryProduct']; ?>" value="<?php echo $value['idCategoryProduct']; ?>" name="category">
+                                    <label class="form-check-label" for="<?php echo $value['idCategoryProduct']; ?>">
+                                        <?php echo $value['categoryName']; ?>
+                                    </label>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputWeight" class="col-sm-2 col-form-label">Weight(Kg)</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="weight" class="form-control" id="inputWeight" placeholder="Cân nặng">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputHeight" class="col-sm-2 col-form-label">Height(Cm)</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="height" class="form-control" id="inputHeight" placeholder="Chiều cao">
+                        </div>
+                    </div>
+                    <h5>Nội dung</h5>
+                    <p>
+                        Loại: <span id="text-gender"></span>
+                        &emsp; || &emsp;
+                        Cân nặng: <span id="text-weight"></span>
+                        &emsp; || &emsp;
+                        Chiều cao: <span id="text-height"></span>
+                    </p>
+                    <span>Gợi ý size cho bạn:</span>
+                    <input type="text" id="suggest-size" name="filter-size">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Xem sản phẩm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+                            

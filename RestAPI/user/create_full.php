@@ -9,10 +9,11 @@ require_once "../model/user.php";
 $user_obj = new Users();
 if($_SERVER['REQUEST_METHOD']=="POST"){
 	$data_get = json_decode(file_get_contents("php://input"),TRUE);
+
 	if(!empty($data_get)){
 		//$data['idUser']
 		$data_user = array();
-		$data_user['idDivision'] = $data_get['idDivision'];
+		$data_user['idDivision']= 1;
 		$data_user['lastName'] = $data_get['lastName'];
 		$data_user['firstName'] = $data_get['firstName'];
 		$data_user['address'] = $data_get['address'];

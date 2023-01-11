@@ -79,7 +79,9 @@
 				<ul class="header-navbar__category__hover__list">
 					<?php foreach($allCategory as $key=>$value){ ?>
 						<li class="header-navbar__category__hover__item">
-							<?php echo $value['categoryName']; ?>
+							<a class="link" href="?act=cuahang&category=<?php echo $value['idCategoryProduct']; ?>">
+								<?php echo $value['categoryName']; ?>
+							</a>
 						</li>
 					<?php } ?>
 				</ul>
@@ -92,7 +94,7 @@
 						</a>
 					</li>
 					<li class="header-navbar__List__item">
-						<a href="#">
+						<a href="?act=introduction">
 							Giới thiệu
 						</a>
 					</li>

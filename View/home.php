@@ -51,8 +51,14 @@
 					<!-- category item -->
 					<?php foreach($allCategory as $key=>$value){ ?>
 						<div class="category-item">
-							<img class="category-item__img" src="./assets/img/logo_giaphat.jpg" alt="">
-							<p class="category-item__name"><?php echo $value['categoryName']; ?></p>
+							<div class="category-item__img--wrap">
+								<img class="category-item__img" src="./assets/img/category/<?php echo $value['categoryImage']; ?>" alt="">
+							</div>
+							<p class="category-item__name">
+								<a class="link" href="?act=cuahang&category=<?php echo $value['idCategoryProduct']; ?>">
+									<?php echo $value['categoryName']; ?>
+								</a>
+							</p>
 						</div>
 					<?php } ?>
 

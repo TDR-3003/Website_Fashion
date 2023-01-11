@@ -11,7 +11,7 @@
 }
 
 
-.wrap-login{
+.wrap-register{
 	background-image: url("../img/background_login.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -24,18 +24,18 @@
 	flex-direction: column;
 }
 
-.wrap-login h2{
+.register h2{
 	margin-bottom: 20px;
 }
 
-.wrap-login .formLogin{
+.wrap-register .formRegister{
 	color: white;
 	background-color: rgba(255, 100, 255, 0.6);
 	padding: 20px 50px 50px 50px;
 	border-radius: 10px;
 }
 
-.formLogin input{
+.formRegister input{
 	margin-bottom: 10px;
 	font-size: 16px;
 	border-radius: 5px;
@@ -44,11 +44,6 @@
 	outline: none;
 }
 
-.error_login{
-	color: red;
-	font-size: 14px;
-	margin-bottom: 5px;
-}
 
 .button_login__wrap{
 	display: flex;

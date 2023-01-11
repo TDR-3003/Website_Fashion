@@ -281,15 +281,15 @@
 /* banner */
 
 .banner__wrap{
-    max-height: 400px;  
+    height: 300px;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px;
 }
 
 .banner__wrap img{
-    height: auto;
-    max-height: 360px;
+    height: 280px !important;
     padding: 10px 0px;
     border-radius: 20px;
 }
@@ -306,14 +306,23 @@
     margin: 0 8px;
 }
 
+.category-item__img--wrap{
+    background-color: transparent;
+    height: 50px;
+    width: 70px;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
 .category-item__img{
-    width: 60px;
-    border-radius: 50px;
     transition: 1s;
 }
 
 .category-item__img:hover{
-    transform: rotate(45deg);
+    /*transform: rotate(30deg);*/
+    transform: scale(1.5, 1.5);
     cursor: pointer;
 }
 

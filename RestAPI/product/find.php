@@ -47,7 +47,7 @@ if(!empty($size)){
 	if($input == ""){
 		$input .= "size.size = '".$size."'";
 	}else{
-		$input .= " AND size.size = $size";
+		$input .= " AND size.size = '".$size."'";
 	}
 	// $input = "size.size = '".$size."'";
 	// $data = $product_obj->searchFull($input);
@@ -61,7 +61,12 @@ if(!empty($limit)){
 	}
 }
 if(!empty($category)){
-	$input .= " idCategoryProduct = $category";
+	if($input == ""){
+		$input .= " idCategoryProduct = $category";
+	}else{
+		$input .= " AND product.idCategoryProduct = $category";
+	}
+	//$input .= " idCategoryProduct = $category";
 }
 if(!empty($latest)){
 	$input .= " 1 Order By idProduct DESC";

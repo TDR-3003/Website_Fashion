@@ -6,6 +6,7 @@
 <div class="title_top">
 	<span>Quản lý user</span>
 </div>
+<span style="display: none;" id="gettext"><?php echo $_SESSION['idUser']; ?></span>
 <a href="?mod=user&act=add" class="btn btn-primary">Thêm user</a>
 <table class="table">
 	<thead class="thead-light">
@@ -23,5 +24,10 @@
 	</thead>
 	<tbody id="list-user">
 		<!-- dữ liệu show ở đây - show bằng js -->
+		<script type="text/javascript">
+			var curent_admin = document.getElementById("gettext")
+			var curent_admin = curent_admin.textContent
+			console.log("dsdsdsd"+curent_admin)
+		</script>
 	</tbody>
 </table>

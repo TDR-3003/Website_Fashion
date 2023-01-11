@@ -2,7 +2,7 @@
 require_once "Controller.php";
 class Details extends Controller{
 	public function index(){
-		$allCategory = $this->Get_All($this->urlAllCategory);
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
 		
 		$idProduct = isset($_GET['id']) ? $_GET['id'] : Null;
 		if($idProduct){

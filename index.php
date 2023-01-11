@@ -36,6 +36,11 @@ switch($action){
 		$obj = new Pay();
 		$obj->insert();
 		break;
+	case 'introduction':
+		require "Controller/Controller.php";
+		$obj = new Controller();
+		$obj->common_show();
+		break;
 	default:
 		require_once "Controller/HomeController.php";
 		$obj = new HomeController();

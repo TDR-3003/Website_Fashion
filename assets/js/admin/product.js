@@ -19,7 +19,7 @@ $(document).ready(function(){
 				$("#details_product #productDescription").val(data[0]['productDescription']);
 				$("#details_product #productSold").val(data[0]['productSold']);
 				$("#details_product #categoryName").val(data[0]['categoryName']);
-				$("#details_product #categoryImage_show").attr("src", "../assets/img/product/"+data[0]['categoryImage']);
+				$("#details_product #categoryImage_show").attr("src", "../assets/img/category/"+data[0]['categoryImage']);
 				$("#details_product #brandName").val(data[0]['brandName']);
 				$("#details_product #color").val(data[0]['color']);
 				$("#details_product #size").val(data[0]['size']);
@@ -310,6 +310,7 @@ $(document).ready(function(){
 			data: jsonobj,
 			success: function(data){
 				console.log("update thành công");
+				window.location = "?mod=product&act=list";
 			}
 		})
 	})

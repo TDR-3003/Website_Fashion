@@ -8,6 +8,11 @@ class Controller{
 	function __construct(){
 	}
 
+	public function common_show(){
+		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
+		require "View/index.php";
+	}
+
 	public function Get_All($url){
 		//Resourse Address        
 		//$url = "http://localhost:8080/WORK_SPACE/dacn1_fashion/RestAPI/category/read.php";

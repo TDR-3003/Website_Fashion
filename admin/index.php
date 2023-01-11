@@ -41,7 +41,7 @@
                             </a>
                             <i class="fas fa-caret-right"></i>
                         </li>
-                        <li class="nav-list__item">
+                        <li class="nav-list__item" id="btn-user">
                             <a href="?mod=user&act=list">
                                 Quản lý người dùng
                             </a>
@@ -137,7 +137,6 @@
     <script src="../assets/js/jquery/jquery.js"></script>
     <!-- JS -->
     <script src="../assets/js/common.js"></script>
-    <script src="../assets/js/admin/common.js"></script>
     <script src="../assets/js/admin/main.js"></script>
     <script src="../assets/js/admin/user.js"></script>
     <script src="../assets/js/admin/banner.js"></script>

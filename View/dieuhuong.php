@@ -19,6 +19,9 @@ switch($act){
 	case "orderDone":
 		require "orderDone.php";
 		break;
+	case "introduction":
+		require "introduction.php";
+		break;
 	default:
 		require "home.php";
 		break;

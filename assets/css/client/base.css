@@ -51,3 +51,14 @@ html{
     }
 }
 
+
+.padding-top--10{
+    padding-top: 8px;
+}
+
+.link{
+    color: #000;
+}
+.link:hover{
+    text-decoration: none;
+}

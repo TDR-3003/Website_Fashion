@@ -40,7 +40,8 @@ if(isset($_SESSION['userName']) && isset($_SESSION['idUser'])){
 			<br>
 			<input type="text" name="password" id="password" placeholder="Nhập password">
 			<div class="button_login__wrap">
-				<button id="btn_login" class="btn btn-primary">Login</button>
+				<a href="#" id="btn_login" class="btn btn-primary">Login</a>
+				<a href="register.php" class="color-white">Or Register</a>
 			</div>
 		</form>
 	</div>

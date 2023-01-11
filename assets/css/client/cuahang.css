@@ -1,5 +1,11 @@
 #body_cuahang{
     padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.wrap{
+    width: 90%;
 }
 
 .cuahang__subnav{
@@ -15,12 +21,23 @@
     text-align: center;
 }
 
+.subnav__list{
+    padding: 0px;
+}
+
 .subnav__list-item{
     margin-top: 6px;
 }
 
 .subnav__list-item__text{
     font-weight: 600;
+    margin-top: 10px;
+}
+
+.subnav__list-item__btn--wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .subnav__list-item__btn{
@@ -32,6 +49,11 @@
     font-weight: 600;
     font-size: 14px;
     border-radius: 10px;
+    margin: 25px 0 20px 0;
+}
+
+.subnav__filter-colorsize{
+    margin-top: 10px;
 }
 
 .subnav__list-item__btn:hover{
@@ -44,7 +66,13 @@
     margin: 0;
     list-style: none;
     font-size: 14px;
-    padding: 0 16px 16px 16px;
+    padding: 8px 16px 0px 16px;
+}
+
+.filter-colorsize{
+    border: 1px solid gray;
+    padding: 2px 10px;
+    width: 100%;
 }
 
 .subnav__filter-price__list{
@@ -53,7 +81,14 @@
     margin: 0;
 }
 
-.subnav__filter-price__list-item{}
+.sufmbnav__list-item__text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.subnav__filter-price__list-item{
+    font-size: 12px;
+}
 
 .subnav__filter-price__list-item label{
     transform: translateY(-1px);
@@ -115,7 +150,8 @@
 .filter__sort{
     position: absolute;
     left: 0;
-    top: 38px;
+    top: 100%;
+    border-top: 1px solid lightgray;
     min-width: 200px;
     background-color: var(--white-color);
     padding: 10px;
@@ -204,10 +240,13 @@
 .cuahang_show-product__item .image__wrap{
     height: 120px;
     line-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cuahang_show-product__item__img{
-    width: 100%;
+    width: auto;
     max-height: 120px;
 }
 
@@ -315,3 +354,8 @@
     font-size: 20px;
 }
 
+
+.suggest-size{
+    border: none;
+    outline: none;
+}

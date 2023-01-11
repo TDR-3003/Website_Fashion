@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/client/chitietsp.css">
     <link rel="stylesheet" href="assets/css/client/cart.css">
     <link rel="stylesheet" href="assets/css/client/pay.css">
+    <link rel="stylesheet" href="assets/css/client/introduction.css">
     <!-- themify icons -->
     <!-- <link rel="stylesheet" href="assets/themify-icons/themify-icons.css"> -->
     <!-- fontawesome -->
