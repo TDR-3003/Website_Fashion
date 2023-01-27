@@ -5,6 +5,19 @@ class Order extends Model
 	var $table = "orders";
 	var $contens = "idOrder";
 
+	public function readFull(){
+		$query = "SELECT * FROM orders 
+					INNER JOIN orderdetails ON orders.idOrder = orderdetails.idOrder
+					INNER JOIN user ON orders.idUser = user.idUser
+					INNER JOIN product ON orderdetails.idProduct = product.idProduct";
+		$result = $this->conn->query($query);
+		$data = array();
+		while($row = $result->fetch_assoc()){
+			$data[] = $row;
+		}
+		return $data;
+	}
+
 	public function create_full($dataOrder, $dataOrderDetails){
 		$f_order = "";
         $v_order = "";
@@ -73,10 +86,16 @@ class Order extends Model
 		return $data;
 	}
 
-	public function update_status($idOrder, $new_status){
+	public function update_status($idOrder, $new_status, $quantityOrder, $idQuantity, $flag){
 		$query = "UPDATE orders SET status = $new_status WHERE idOrder = $idOrder";
 		$status = $this->conn->query($query);
-		return $status;
+		if($status && $flag==1){
+			$query2 = "UPDATE quantity SET quantity = quantity - $quantityOrder WHERE idQuantity = $idQuantity";
+			$status2 = $this->conn->query($query2);
+			return $status2;
+		}else{
+			return $status;
+		}
 	}
 }
 ?>

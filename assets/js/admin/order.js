@@ -9,9 +9,9 @@ $(document).ready(function(){
 				$.each(data, function(key, value){
 					if(!isNaN(key)){
 						if(value.status == 0){
-							var status = "<button class='btn btn-warning' id='new_order' data-status='1' data-idorder='"+value.idOrder+"'>Đơn hàng mới</button>";
+							var status = "<button class='btn btn-warning' id='new_order' data-status='1' data-idorder='"+value.idOrder+"' data-quantity='"+value.quantityOrder+"' data-idquantity='"+value.idQuantity+"'>Đơn hàng mới</button>";
 						}else if(value.status == 1){
-							var status = "<button class='btn btn-primary' id='done_order' data-status='0' data-idorder='"+value.idOrder+"'>Đơn hàng Đã xử lý</button>";
+							var status = "<button class='btn btn-primary' id='done_order' data-status='0' data-idorder='"+value.idOrder+"' data-quantity='"+value.quantityOrder+"' data-idquantity='"+value.idQuantity+"'>Đơn hàng Đã xử lý</button>";
 						}
 						$("#list-order").append(
 							"<tr>"+
@@ -85,9 +85,15 @@ $(document).ready(function(){
 		e.preventDefault();
 		var new_status = $(this).data("status");
 		var idOrder = $(this).data("idorder");
+		var quantityOrder = $(this).data("quantity");
+		var idQuantity = $(this).data("idquantity");
+		console.log("sdsd"+idOrder)
 		var jsonobj = JSON.stringify({
 			idOrder: idOrder,
-			status: new_status
+			status: new_status,
+			quantityOrder: quantityOrder,
+			idQuantity: idQuantity,
+			flag: 1
 		});
 		//console.log(jsonobj);
 		$.ajax({
@@ -107,9 +113,14 @@ $(document).ready(function(){
 		e.preventDefault();
 		var new_status = $(this).data("status");
 		var idOrder = $(this).data("idorder");
+		var quantityOrder = $(this).data("quantity");
+		var idQuantity = $(this).data("idquantity");
 		var jsonobj = JSON.stringify({
 			idOrder: idOrder,
-			status: new_status
+			status: new_status,
+			quantityOrder: quantityOrder,
+			idQuantity: idQuantity,
+			flag: 0
 		});
 		//console.log(jsonobj);
 		$.ajax({

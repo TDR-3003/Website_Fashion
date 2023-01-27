@@ -14,8 +14,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 	$idOrder = $data_get['idOrder'];
 	$new_status = $data_get['status'];
-
-	$status = $order_obj->update_status($idOrder, $new_status);
+	$quantityOrder = $data_get['quantityOrder'];
+	$idQuantity = $data_get['idQuantity'];
+	$flag = $data_get['flag'];
+	$status = $order_obj->update_status($idOrder, $new_status, $quantityOrder, $idQuantity, $flag);
 	if($status){
 		$order_obj->deliver_response(200, "Cập nhật thành công", null);
 	}else{

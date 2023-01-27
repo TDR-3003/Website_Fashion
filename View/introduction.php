@@ -5,6 +5,7 @@
 		</div>
 		<div class="intro-header__bottom">
 			<h5>Thêm yêu vẻ đẹp chính mình</h5>
+			<h5>Chuyên cung cấp áo thời trang nam và nữ</h5>
 		</div>
 	</div>
 	<div class="intro-body">

@@ -75,12 +75,12 @@
             </div>
             <div class="col-lg-10">
                 <div class="cuahang__product">
-                 <div class="cuahang__product__header">
+                   <div class="cuahang__product__header">
                     <span class="cuahang__product__header__text">Sắp xếp theo: </span>
-                    <a href="#" class="cuahang__product__header__btn" data-toggle="modal" data-target="#exampleModal">
+                    <a href="#" class="cuahang__product__header__btn active" data-toggle="modal" data-target="#exampleModal">
                         Suggestion
                     </a>
-                    <a href="?act=cuahang&latest=1" class="cuahang__product__header__btn active">
+                    <a href="?act=cuahang&latest=1" class="cuahang__product__header__btn">
                         Mới nhất
                     </a>
                     <a href="?act=cuahang&topSelling=1" class="cuahang__product__header__btn">
@@ -105,8 +105,24 @@
                             <?php } ?>
                         </ul>
                     </div>
+
+                    <div class="cuahang__product__header__btn cuahang__product__header__btn--wrap">
+                        Thương hiệu
+                        <i class="fas fa-chevron-down"></i>
+                        <ul class="filter__sort">
+                            <?php foreach($allBrand as $key=>$value){ ?>
+                                <li class="filter__sort-item">
+                                    <a href="?act=cuahang&filter-brand=<?=$value['idBrand'];?>">
+                                        <?php echo $value['brandName']; ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                     
-                    <div class="devide__page">
+                   <!--  
+                    Giao diện - Phân trang
+                   <div class="devide__page">
                         <div class="devide__page__text">
                             <span class="devide__page__text--page">1</span>
                             <span class="devide__page__text--sumpage">/25</span>
@@ -119,7 +135,7 @@
                                 <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
-                    </div>   
+                    </div>   --> 
                 </div>
                 <div class="cuahang_show-product">
                     <div class="grid_row">
@@ -140,12 +156,14 @@
                                         </span> 
                                     -->
                                     <span class="cuahang_show-product__item__name--curent">
-                                       <?=$value['productUnitPrice']?>
-                                   </span>
-                                   <p class="size-color">
+                                     <?=$value['productUnitPrice']?>
+                                 </span>
+                                 <p class="size-color">
                                     size: <?=$value['size']?>
                                     -
                                     color: <?=$value['color']?>
+                                    -
+                                    brand: <?=$value['brandName']?>
                                 </p>
                             </div>
                             <div class="cuahang_show-product__item__name__btn">
@@ -212,45 +230,69 @@
                     <div class="form-group row">
                         <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10 padding-top--10">
-                            <?php foreach($allCategory as $key=>$value){ ?>
+                            <!--
+                            < ? php foreach($allCategory as $key=>$value){ ?>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="<?php echo $value['idCategoryProduct']; ?>" value="<?php echo $value['idCategoryProduct']; ?>" name="category">
-                                    <label class="form-check-label" for="<?php echo $value['idCategoryProduct']; ?>">
-                                        <?php echo $value['categoryName']; ?>
+                                    <input class="form-check-input" type="radio" id="< ?php echo $value['idCategoryProduct']; ?>" value="< ?php echo $value['idCategoryProduct']; ?>" name="category">
+                                    <label class="form-check-label" for="< ?php echo $value['idCategoryProduct']; ?>">
+                                        < ?php echo $value['categoryName']; ?>
                                     </label>
                                 </div>
-                            <?php } ?>
+                            < ? ưphp } ? >
+                        -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="nam" value="50" name="category">
+                            <label class="form-check-label" for="nam">Nam</label>
+                            &emsp;
+                            <input class="form-check-input" type="radio" id="nu" value="51" name="category">
+                            <label class="form-check-label" for="nu">Nữ</label>
                         </div>
+
                     </div>
-                    <div class="form-group row">
-                        <label for="inputWeight" class="col-sm-2 col-form-label">Weight(Kg)</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="weight" class="form-control" id="inputWeight" placeholder="Cân nặng">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputWeight" class="col-sm-2 col-form-label">Weight(Kg)</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="weight" class="form-control" id="inputWeight" placeholder="Cân nặng">
                     </div>
-                    <div class="form-group row">
-                        <label for="inputHeight" class="col-sm-2 col-form-label">Height(Cm)</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="height" class="form-control" id="inputHeight" placeholder="Chiều cao">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputHeight" class="col-sm-2 col-form-label">Height(Cm)</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="height" class="form-control" id="inputHeight" placeholder="Chiều cao">
                     </div>
-                    <h5>Nội dung</h5>
-                    <p>
-                        Loại: <span id="text-gender"></span>
-                        &emsp; || &emsp;
-                        Cân nặng: <span id="text-weight"></span>
-                        &emsp; || &emsp;
-                        Chiều cao: <span id="text-height"></span>
-                    </p>
-                    <span>Gợi ý size cho bạn:</span>
-                    <input type="text" id="suggest-size" name="filter-size">
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Xem sản phẩm</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <h5>Nội dung</h5>
+                <p>
+                    Loại: <span id="text-gender"></span>
+                    &emsp; || &emsp;
+                    Cân nặng: <span id="text-weight"></span>
+                    &emsp; || &emsp;
+                    Chiều cao: <span id="text-height"></span>
+                </p>
+                <span>Gợi ý size cho bạn:</span>
+                <input type="text" id="suggest-size" name="filter-size">
+                <div class="modal-footer">
+                    <button type="button" id="btnClose-modal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Xem sản phẩm</button>
+                    <!-- Trigger the Modal - kích hoạt modal (nhấn vào để kích hoạt) -->
+                    <img id="myImg" src="./assets/img/bangsize.png" alt="Bảng Size" style="width:40px; border: solid 1px rgba(0, 0, 0, 0.6);">
+                </div>
+            </form>
         </div>
     </div>
 </div>
-                            
+</div>
+
+<!-- The Modal Image - modal ảnh size trong phần gợi ý -->
+<div id="myModal" class="modalImg">
+
+  <!-- The Close Button -->
+  <span id="modalImg-close" class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modalImg-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>

@@ -52,7 +52,7 @@ function loadTable(){
         $.each(data,function(key,value){
         //console.log(key+ " "+value.id);
         //console.table(data);
-        if(value.idUser == curent_admin){
+        if(typeof curent_admin != 'undefined' && value.idUser == curent_admin){
           var btn_delete = "<button id='delete-btn' style='cursor: not-allowed; pointer-events:none; user-select: none; opacity: 0.5;' data-iddelete="+value.idUser+">Delete</button>"
           var btn_update = "<a id='update-btn' style='cursor: not-allowed; pointer-events:none; user-select: none; opacity: 0.5;' href='?mod=user&act=update&idUser="+value.idUser+"'>Update</a>"
         }else{

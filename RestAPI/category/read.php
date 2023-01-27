@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: *");   //Mọi trang web và mobile app đ�
 require_once "../model/category.php";
 $category_obj = new Category();
 
-$data = $category_obj->All();
+$data = $category_obj->readAll_Full();
 
 if(empty($data))
 	$category_obj->deliver_response(200, "Không tìm thấy dữ liệu", NULL);

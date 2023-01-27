@@ -6,6 +6,8 @@
 	margin-top: 50px;
 	margin-bottom: -30px;
 	background-color: #337ab7;
+/*	background-color: var(--primary-color);*/
+/*	filter: brightness(70%);*/
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -19,6 +21,7 @@
 	flex-direction: column;
 	color: #fff;
 	margin-top: 10px;
+	text-align: center;
 }
 
 .intro-header__top{
@@ -36,6 +39,7 @@
 	border-radius: 20px;
 	padding: 16px 100px;
 	margin-top: 40px;
+	border: 4px solid rgba(0, 0, 0, 0.4);
 }
 
 .intro-body__top{

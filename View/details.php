@@ -28,7 +28,15 @@
 										</div>
 										<div class="chitietsp--item chitietsp_status">
 											<span class="chitietsp_status--title">Tình trạng: </span>
-											<span class="chitietsp_status--content">Còn trong kho</span>
+											<span class="chitietsp_status--content">
+												<?php 
+													if($value['quantity'] > 0){
+														echo "Còn trong kho";
+													}else{
+														echo "Đã hết hàng";
+													}
+												?>
+											</span>
 										</div>
 										<div class="chitietsp--item chitietsp_price">
 											<span class="chitietsp_price--curent">
@@ -38,11 +46,16 @@
 										</div>
 										<div class="chitietsp--item chitietsp_quantity">
 											<a href="#" class="chitietsp_quantity--minus">-</a>
+											<input type="hidden" name="" id="quantity_main" value="<?=$value['quantity']?>">
 											<input type="text" name="quantity" id="get_quantity" value="1" class="get_quantity">
 											<a href="#" class="chitietsp_quantity--plus">+</a>
 										</div>
 										<div class="chitietsp--item chitietsp_btn">
-											<button class="btn chitietsp_btn__add-cart" type="submit">
+											<button class="btn chitietsp_btn__add-cart <?php 
+													if($value['quantity'] <= 0){
+														echo "disaple";
+													}
+												?>" type="submit">
 												Thêm vào giỏ
 											</button>
 											<!-- <button type="submit" class="btn chitietsp_btn__buy-now">

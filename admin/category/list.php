@@ -10,6 +10,8 @@
 			<th scope="col">categoryName</th>
 			<th scope="col">categoryImage</th>
 			<th scope="col">categoryDesc</th>
+			<th scope="col">Giới tính</th>
+			<th scope="col">Chất liệu</th>
 			<th scope="col">action</th>
 		</tr>
 	</thead>

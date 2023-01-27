@@ -8,6 +8,7 @@ class Controller{
 	function __construct(){
 	}
 
+	// hiển thị tất cả category => nam và nữ - dùng trong gợi ý size
 	public function common_show(){
 		$allCategory = $this->Get_All($this->basicUrl."/category/read.php");
 		require "View/index.php";

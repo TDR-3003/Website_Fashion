@@ -15,6 +15,7 @@ $limit = isset($_GET['limit']) ? $_GET['limit'] : null;
 $latest = isset($_GET['latest']) ? $_GET['latest'] : null;
 $topSelling = isset($_GET['topSelling']) ? $_GET['topSelling'] : null;
 $category = isset($_GET['category']) ? $_GET['category'] : null;
+$brand = isset($_GET['filter-brand']) ? $_GET['filter-brand'] : null;
 $input = "";
 
 if(!empty($search)){
@@ -68,11 +69,15 @@ if(!empty($category)){
 	}
 	//$input .= " idCategoryProduct = $category";
 }
+// 1 là để có dạng where 1: là để khi dùng OrderBy thì chữ where cố định bên kia không bị dư
 if(!empty($latest)){
 	$input .= " 1 Order By idProduct DESC";
 }
 if(!empty($topSelling)){
 	$input .= " 1 Order By productSold DESC";
+}
+if(!empty($brand)){
+	$input .= " brand.idBrand=$brand";
 }
 
 

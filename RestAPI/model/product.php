@@ -43,6 +43,7 @@ class Product extends Model
 
 	public function searchFull($input){
 		$query = "SELECT * FROM product 
+					INNER JOIN brand ON product.idBrand = brand.idBrand 
 					INNER JOIN quantity ON product.idQuantity = quantity.idQuantity 
 					INNER JOIN size ON quantity.idSize = size.idSize
 					INNER JOIN color ON quantity.idColor = color.idcolor 
@@ -68,6 +69,7 @@ class Product extends Model
 		$f = trim($f, 'OR ');  // phải có dấu cách chỗ OR vì hàm trim tính luôn dấu cách đó
 			//echo $f;
 		$query = "SELECT * FROM $this->table 
+					INNER JOIN brand ON product.idBrand = brand.idBrand 
 					INNER JOIN quantity ON product.idQuantity = quantity.idQuantity 
 					INNER JOIN size ON quantity.idSize = size.idSize
 					INNER JOIN color ON quantity.idColor = color.idcolor
@@ -89,6 +91,7 @@ class Product extends Model
 	// có bao gồm img
 	public function read_full(){
 		$query = "SELECT * FROM product 
+					INNER JOIN brand ON product.idBrand = brand.idBrand 
 					INNER JOIN quantity ON product.idQuantity = quantity.idQuantity 
 					INNER JOIN size ON quantity.idSize = size.idSize
 					INNER JOIN color ON quantity.idColor = color.idcolor 
@@ -113,9 +116,8 @@ class Product extends Model
 
 	public function read_details($idProduct){
 		$query = "Select * from product
+		INNER JOIN brand ON product.idBrand = brand.idBrand 
 		inner join categoryproduct on product.idCategoryProduct = categoryproduct.idCategoryProduct
-
-		inner join brand on product.idBrand = brand.idBrand
 
 		inner join quantity on product.idQuantity = quantity.idQuantity
 		inner join color on quantity.idColor = color.idcolor

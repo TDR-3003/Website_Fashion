@@ -14,6 +14,8 @@ $(document).ready(function(){
 	            "<td>"+value.categoryName+"</td>"+
 	            "<td><img class='img-showList' src='../assets/img/category/"+value.categoryImage+"'></td>"+
 	            "<td>"+value.categoryDesc+"</td>"+
+	            "<td>"+value.gender+"</td>"+
+	            "<td>"+value.material+"</td>"+
 	            "<td>"+
 	            "<button id='delete-btn-category' data-iddelete="+value.idCategoryProduct+">Delete</button>"+
 	            "<br>"+

@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: *");   //Mọi trang web và mobile app đ�
 require_once "../model/order.php";
 $order_obj = new Order();
 
-$data = $order_obj->All();
+$data = $order_obj->readFull();
 
 if(empty($data))
 	$order_obj->deliver_response(200, "Không tìm thấy dữ liệu", NULL);

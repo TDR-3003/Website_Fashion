@@ -254,4 +254,11 @@
     padding: 10px;
 }
 
+.disaple{
+    opacity: 0.6;
+    position: relative;
+    pointer-events: none;
+}
+
+
 
