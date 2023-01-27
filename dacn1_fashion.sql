@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 04, 2022 lúc 05:15 PM
+-- Thời gian đã tạo: Th1 27, 2023 lúc 02:46 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 7.4.33
 
@@ -41,7 +41,8 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`idAccount`, `idUser`, `email`, `password`) VALUES
 (1, 1, 'tin@gmail.com', '12345'),
 (2, 2, 'mailinh@gmail.com', '12345'),
-(3, 3, 'admin@gmail.com', '123456');
+(3, 3, 'admin@gmail.com', '123456'),
+(5, 9, 'test@gmail.com', 'test');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ CREATE TABLE `brand` (
 
 INSERT INTO `brand` (`idBrand`, `brandName`, `brandDesc`, `brandLogo`) VALUES
 (1, 'Gucci', 'Thương hiệu nổi tiếng thế giới', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKy6uko-_sWcKWBDbGKjqBUurXks2NeVduSS2kuwOW&s'),
-(8, 'Chanel', 'Thương hiệu nổi tiếng thế giới', 'https://cdn.elly.vn/uploads/2021/01/06205934/y-nghia-logo-thuong-hieu-chanel.png');
+(8, 'Chanel', 'Thương hiệu nổi tiếng thế giới', 'https://cdn.elly.vn/uploads/2021/01/06205934/y-nghia-logo-thuong-hieu-chanel.png'),
+(9, 'Unknow', 'Thương hiệu không xác định', 'https://t3.ftcdn.net/jpg/00/71/25/36/360_F_71253677_5TQN4IM0tvaKkHgd7je8iq1ddun2N51J.jpg');
 
 -- --------------------------------------------------------
 
@@ -93,6 +95,8 @@ INSERT INTO `brand` (`idBrand`, `brandName`, `brandDesc`, `brandLogo`) VALUES
 CREATE TABLE `categoryproduct` (
   `idCategoryProduct` int(11) NOT NULL,
   `categoryName` varchar(255) NOT NULL,
+  `idGender` int(11) NOT NULL,
+  `idMaterial` int(11) NOT NULL,
   `categoryImage` varchar(255) NOT NULL,
   `categoryDesc` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -101,9 +105,13 @@ CREATE TABLE `categoryproduct` (
 -- Đang đổ dữ liệu cho bảng `categoryproduct`
 --
 
-INSERT INTO `categoryproduct` (`idCategoryProduct`, `categoryName`, `categoryImage`, `categoryDesc`) VALUES
-(50, 'Đồ nam', 'SanPham_Nam.jpg', 'Thời trang cho nam'),
-(51, 'Đồ nữ', 'SanPham_Nu.jpg', 'Thời trang cho nữ');
+INSERT INTO `categoryproduct` (`idCategoryProduct`, `categoryName`, `idGender`, `idMaterial`, `categoryImage`, `categoryDesc`) VALUES
+(1, 'Hoodie', 2, 4, 'SanPham_Nam.jpg', 'Thời trang cho nam'),
+(2, 'Sơ mi', 2, 5, 'SanPham_Nu.jpg', 'Thời trang cho nữ'),
+(3, 'Thun', 2, 3, '', ''),
+(4, 'Áo Khoác', 2, 6, '', ''),
+(5, 'Hoodie', 1, 5, '', ''),
+(6, 'Sơ mi', 1, 6, '', '');
 
 -- --------------------------------------------------------
 
@@ -139,13 +147,6 @@ CREATE TABLE `comment` (
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `comment`
---
-
-INSERT INTO `comment` (`idComment`, `idProduct`, `idUser`, `content`) VALUES
-(15, 1, 2, 'l');
-
 -- --------------------------------------------------------
 
 --
@@ -165,6 +166,25 @@ CREATE TABLE `divisionuser` (
 INSERT INTO `divisionuser` (`idDivision`, `divisionName`, `divisionDescription`) VALUES
 (1, 'Customer', 'quyền truy cập của khách hàng'),
 (2, 'Admin', 'Quyền truy cập của quản trị viên - có thể truy cập trang quản lý');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `gender`
+--
+
+CREATE TABLE `gender` (
+  `idGender` int(11) NOT NULL,
+  `gender` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `gender`
+--
+
+INSERT INTO `gender` (`idGender`, `gender`) VALUES
+(1, 'Nam'),
+(2, 'Nữ');
 
 -- --------------------------------------------------------
 
@@ -214,6 +234,29 @@ INSERT INTO `layout` (`id`, `time`, `mail_1`, `mail_2`, `diachi`, `donvi`, `phon
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `material`
+--
+
+CREATE TABLE `material` (
+  `idMaterial` int(11) NOT NULL,
+  `material` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `material`
+--
+
+INSERT INTO `material` (`idMaterial`, `material`) VALUES
+(1, 'Da'),
+(2, 'Phao'),
+(3, 'nỉ'),
+(4, 'thun'),
+(5, 'kaki'),
+(6, 'dù');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `orderdetails`
 --
 
@@ -230,7 +273,8 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`idOrderDetails`, `idProduct`, `idOrder`, `quantityOrder`, `discount`) VALUES
-(38, 95, 38, 3, 0);
+(38, 94, 38, 3, 0),
+(39, 95, 39, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -251,7 +295,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`idOrder`, `idUser`, `dateDelivery`, `dateOrder`, `status`) VALUES
-(38, 3, '03/12/2022', '03/12/2022', 0);
+(38, 3, '03/12/2022', '03/12/2022', 1),
+(39, 1, '12/01/2023', '12/01/2023', 1);
 
 -- --------------------------------------------------------
 
@@ -276,8 +321,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`idProduct`, `idCategoryProduct`, `idBrand`, `idQuantity`, `productName`, `productUnitPrice`, `dateIn`, `productDescription`, `productSold`) VALUES
-(94, 51, 1, 22, 'Áo sơ mi Thả vai Uốn nếp Eo Không có thắt lưng', '150000', '2022/11/9', 'Giày da bò đẹp bền', 10),
-(95, 50, 1, 23, 'Áo Len - Cardigan - V Neck - Cài Khuy - Dài Tay', '600000', '2022/11/8', 'Áo Len - Cardigan - V Neck - Cài Khuy - Dài Tay', 5);
+(94, 1, 1, 22, 'Áo sơ mi Thả vai Uốn nếp Eo Không có thắt lưng', '150000', '2022/11/9', 'Giày da bò đẹp bền', 10),
+(95, 2, 8, 23, 'Áo Len - Cardigan - V Neck - Cài Khuy - Dài Tay', '600000', '2022/11/8', 'Áo Len - Cardigan - V Neck - Cài Khuy - Dài Tay', 5);
 
 -- --------------------------------------------------------
 
@@ -297,9 +342,8 @@ CREATE TABLE `quantity` (
 --
 
 INSERT INTO `quantity` (`idQuantity`, `idColor`, `idSize`, `quantity`) VALUES
-(22, 13, 2, 20000),
-(23, 13, 2, 20000),
-(25, 0, 0, 0);
+(22, 13, 2, 19997),
+(23, 13, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -309,7 +353,7 @@ INSERT INTO `quantity` (`idQuantity`, `idColor`, `idSize`, `quantity`) VALUES
 
 CREATE TABLE `size` (
   `idsize` int(11) NOT NULL,
-  `size` int(11) NOT NULL
+  `size` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -317,9 +361,12 @@ CREATE TABLE `size` (
 --
 
 INSERT INTO `size` (`idsize`, `size`) VALUES
-(1, 30),
-(2, 32),
-(3, 36);
+(1, 'XS'),
+(2, 'S'),
+(3, 'M'),
+(4, 'L'),
+(5, 'XL'),
+(6, 'XXL');
 
 -- --------------------------------------------------------
 
@@ -344,7 +391,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`idUser`, `idDivision`, `lastName`, `firstName`, `address`, `sex`, `phone`) VALUES
 (1, 1, 'Ngô', 'Tin', 'Đà Nẵng', 'male', '0787700624'),
 (2, 1, 'Linh', 'Mai', 'Đà Nẵng', 'male', '0787700624'),
-(3, 2, 'admin', 'admin ', 'Đà Nẵng', 'male', '1234567890');
+(3, 2, 'admin', 'admin ', 'Đà Nẵng', 'male', '1234567890'),
+(9, 1, 'test', 'test', 'test', 'male', '01298375546');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -393,6 +441,12 @@ ALTER TABLE `divisionuser`
   ADD PRIMARY KEY (`idDivision`);
 
 --
+-- Chỉ mục cho bảng `gender`
+--
+ALTER TABLE `gender`
+  ADD PRIMARY KEY (`idGender`);
+
+--
 -- Chỉ mục cho bảng `image`
 --
 ALTER TABLE `image`
@@ -403,6 +457,12 @@ ALTER TABLE `image`
 --
 ALTER TABLE `layout`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `material`
+--
+ALTER TABLE `material`
+  ADD PRIMARY KEY (`idMaterial`);
 
 --
 -- Chỉ mục cho bảng `orderdetails`
@@ -448,7 +508,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
-  MODIFY `idAccount` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idAccount` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `banner`
@@ -460,13 +520,13 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `idBrand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idBrand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `categoryproduct`
 --
 ALTER TABLE `categoryproduct`
-  MODIFY `idCategoryProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idCategoryProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `color`
@@ -487,6 +547,12 @@ ALTER TABLE `divisionuser`
   MODIFY `idDivision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `gender`
+--
+ALTER TABLE `gender`
+  MODIFY `idGender` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT cho bảng `image`
 --
 ALTER TABLE `image`
@@ -499,16 +565,22 @@ ALTER TABLE `layout`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `material`
+--
+ALTER TABLE `material`
+  MODIFY `idMaterial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `idOrderDetails` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idOrderDetails` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -526,13 +598,13 @@ ALTER TABLE `quantity`
 -- AUTO_INCREMENT cho bảng `size`
 --
 ALTER TABLE `size`
-  MODIFY `idsize` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `idsize` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
